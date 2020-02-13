@@ -48,12 +48,12 @@ let middleImg = document.getElementById("middle-img")
 middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"])
 
 //NAV LINKS
-//append and prepend elements to nav
-let navItems = document.querySelectorAll("a")
-for (let i=0; i<navItems.length; i++) {
-  navItems[i].innerHTML = siteContent["nav"][`nav-item-${i+1}`];
-  navItems[i].style.color = 'green';
-}
+//append and prepend elements to nav -- use forEach() when iterating thru a collection array1.forEach((element, i) => console.log(element, i));
+
+document.querySelectorAll("a").forEach((element, i) => {
+  element.innerHTML = siteContent["nav"][`nav-item-${i+1}`];
+  element.style.color = 'green';
+});
 
 const nav = document.querySelector("nav");
 let blogNavItem = document.createElement("a");
@@ -66,10 +66,10 @@ nav.prepend(locationNavItem);
 locationNavItem.innerHTML = "Locations";
 locationNavItem.style.color = "green";
 
-let introTitle = document.querySelectorAll(".cta-text h1")[0];
+let introTitle = document.querySelector(".cta-text h1");
 introTitle.innerHTML = siteContent["cta"]["h1"];
 
-let introButton = document.querySelectorAll(".cta-text button")[0];
+let introButton = document.querySelector(".cta-text button");
 introButton.innerHTML = siteContent["cta"]["button"];
 
 //TOP CONTENT
